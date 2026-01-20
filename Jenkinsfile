@@ -29,12 +29,6 @@ pipeline{
         }      
     }
   post {
-    success{
-      echo 'Deployment successful'
-    }
-    failure{
-      echo 'Deplyment failed!'
-    }
     always{
       sh 'docker system prune -f'
     }
