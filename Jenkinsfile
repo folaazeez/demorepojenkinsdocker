@@ -22,7 +22,7 @@ pipeline{
         stage ('Deploy'){
             steps{
                 sh '''
-                docker rm -f myapp || true
+                docker rm -f myapp 2</dev/null
                 docker run -d --name myapp -p 8080:80
                 '''
             }
