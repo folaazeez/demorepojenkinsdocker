@@ -1,7 +1,7 @@
 pipeline{
   agent {label 'docker-node'}
   environment{
-    IMAGE = 'myapp:${BUILD_NUMBER}'
+    IMAGE = 'myapp:${env.BUILD_NUMBER}'
   }
       stages{
         stage ('Checkout Code'){
@@ -11,12 +11,12 @@ pipeline{
         }      
         stage ('Build Image'){
             steps{
-                sh 'docker build -t ${IMAGE} .'
+                sh 'docker build -t $IMAGE .'
             }
         }      
         stage ('Unit Test'){
             steps{
-                sh 'docker run --rm ${IMAGE} echo "Running Tests..."'
+                sh 'docker run --rm $IMAGE echo "Running Tests..."'
             }
         }      
         stage ('Deploy'){
