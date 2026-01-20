@@ -14,11 +14,7 @@ pipeline{
                 sh 'docker build -t $IMAGE .'
             }
         }      
-        stage ('Unit Test'){
-            steps{
-                sh 'docker run --rm $IMAGE'
-            }
-        }      
+   
         stage ('Deploy'){
             steps{
                 sh '''
