@@ -11,7 +11,10 @@ pipeline{
         }               
         stage ('Build Image'){
             steps{
-                sh 'docker build -t $IMAGE .'
+                sh '''
+                docker rmi -f $IMAGE 2>/dev/null
+                docker build -t $IMAGE .
+                '''
             }
         }      
    
