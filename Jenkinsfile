@@ -11,7 +11,7 @@ pipeline{
         }      
         stage ('Clear Old'){
             steps{
-                sh 'docker rmi $IMAGE 2>/dev/null'
+                sh 'docker rmi $IMAGE 2</dev/null'
             }
         }           
         stage ('Build Image'){
