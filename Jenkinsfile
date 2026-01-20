@@ -9,6 +9,11 @@ pipeline{
                 checkout scm
             }
         }      
+        stage ('Clear Old'){
+            steps{
+                sh 'docker rmi $IMAGE'
+            }
+        }           
         stage ('Build Image'){
             steps{
                 sh 'docker build -t $IMAGE .'
