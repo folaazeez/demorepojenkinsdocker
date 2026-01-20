@@ -16,7 +16,7 @@ pipeline{
         }      
         stage ('Unit Test'){
             steps{
-                sh 'docker run --rm $IMAGE echo "Running Tests..."'
+                sh 'docker run --rm $IMAGE'
             }
         }      
         stage ('Deploy'){
@@ -29,6 +29,12 @@ pipeline{
         }      
     }
   post {
+    success{
+      echo 'Deployment successful'
+    }
+    failure{
+      echo 'Deplyment failed!'
+    }    
     always{
       sh 'docker system prune -f'
     }
