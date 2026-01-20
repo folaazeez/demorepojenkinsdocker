@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:alpine
 LABEL org.opencontainers.image.authors="foladevops@gmail.com"
 COPY *.html /usr/share/nginx/html/index.html
 
