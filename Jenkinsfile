@@ -8,12 +8,7 @@ pipeline{
             steps{
                 checkout scm
             }
-        }      
-        stage ('Clear Old'){
-            steps{
-                sh 'docker rmi $IMAGE 2</dev/null'
-            }
-        }           
+        }               
         stage ('Build Image'){
             steps{
                 sh 'docker build -t $IMAGE .'
