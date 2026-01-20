@@ -1,7 +1,7 @@
 pipeline{
   agent {label 'docker-node'}
   environment{
-    IMAGE='myapp:${BUILD_NUMBER}'
+    IMAGE = 'myapp:${BUILD_NUMBER}'
   }
       stages{
         stage ('Checkout Code'){
